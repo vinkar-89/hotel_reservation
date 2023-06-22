@@ -1,17 +1,15 @@
 /*
+    Hotel Reservation system
+    
     Hotel rooms division -
     Presidential suite
-            Penthouse suite
-                Executive suite
-                    honeymoon /
-        couple room double
-            single
+    Penthouse suite
+    Executive suite
+    Couple room 
+    Double
+    Single
 
-                Assistant -
-    Virtual interaction
-
-    Book room =
-
+    Made by: Nidhay Reddy
 */
 
 #include <iostream>
@@ -26,7 +24,6 @@ class HotelBooking
 private:
     map<string, int> typeHash;
     int id;
-    // vector<queue<roomInfo>> roomData;
     priority_queue<int, vector<int>, greater<int>> roomData[6];
     vector<int> capacity;
     vector<int> prices;
@@ -52,10 +49,6 @@ public:
         prices.push_back(1000);
         prices.push_back(500);
         prices.push_back(300);
-        // for (int i = 0; i < 5; i++)
-        // {
-        //     (roomData + i) = new int;
-        // }
         id = 0;
     }
 
@@ -101,10 +94,7 @@ public:
         cin >> decision;
         if (decision == "Yes")
         {
-            // cout << "For which date shall I book?\n";
-            // cout << "[Enter a number n where 0 <= n <= 30, n=0 implies today]\n";
             int bookDate = 1;
-            // cin >> bookDate;
             cout << "What kind of room would you like to book?\n";
             cout << "We have a Penthouse suite, Presidential suite, Executive suite, Couple suite, Double, Single" << endl;
             cout << "[Enter the type of room as a string]" << endl;
@@ -121,11 +111,7 @@ public:
 
                 cout << "Your estimated bill will be " << Bill(bookDate, nOfDays, hotelType) << " units and you can pay anytime during your stay :)" << endl;
                 cout << "Thank you for booking with us. Here are the keys." << endl;
-                // cout << "[Enter -1 to start a new booking]" << endl;
                 cout << "[Enter 1 to start a new booking and 0 to terminate]" << endl;
-                // int terminate;
-                // cin>>terminate;
-                // if(terminate == -1)
             }
             else
             {
@@ -143,13 +129,11 @@ public:
                     string newHotelType;
                     cin >> newHotelType;
                     cout << "How many days would you like to stay?" << endl;
-                    // cout << "[Enter a number n where n>=1]" << endl;
                     int nOfDays;
                     cin >> nOfDays;
                     Book(nOfDays, newHotelType);
                     cout << "Your estimated bill will be " << Bill(bookDate, nOfDays, newHotelType) << " units and you can pay anytime during your stay :)" << endl;
                     cout << "Thank you for booking with us. Here are the keys." << endl;
-                    // cout << "[Enter -1 to start a new booking]" << endl;
                     cout << "[Enter 1 to start a new booking and 0 to terminate]" << endl;
                 }
                 else
@@ -157,7 +141,6 @@ public:
                     cout << "Your room will be available after " << waitingDays(bookDate, hotelType) << " days.\n";
                     cout << "Your estimated bill will be " << Bill(bookDate, nOfDays, hotelType) << " units and you can pay anytime during your stay :)" << endl;
                     cout << "Thank you for booking with us. Here are the keys." << endl;
-                    // cout << "[Enter -1 to start a new booking]" << endl;
                     cout << "[Enter 1 to start a new booking and 0 to terminate]" << endl;
                 }
             }
